@@ -41,7 +41,7 @@ class RpgChar{
 
 
 
-    //side skill methods
+    //Side skill methods
 
     gamble(target){
 
@@ -172,8 +172,52 @@ class RpgChar{
         // }
     }
 
+    // Healing Methods
 
-}
+    eat(food){
+        // Only food objects for now: apple(1) soon to come: bread(5), meat(10)
+        console.log(`${this.name} has ${this.currentHp} HP`)
+
+        if(food === "apple"){
+
+            
+
+            if(this.currentHp < this.maxHp){
+
+                this.currentHp += 1
+
+                console.log(`${this.name} eats an apple.`)
+                console.log(`It heals 1 HP`)
+
+            }else if(this.currentHp === this.maxHp ){
+
+
+            console.log(`${this.name} isn't hungry`)
+
+            }else{
+
+                console.log(`${this.name} trys to eat ${food} but throws it up.`)
+
+            }
+
+        }
+
+            //Insurance so that health doesnt exceed max HP level
+            if(this.currentHp > this.maxHp){
+            
+                this.currentHp = this.maxHp
+
+            }
+
+        console.log(`${this.name} now has ${this.currentHp} HP`)
+        console.log("")
+        console.log("----------------")
+        console.log ("")
+
+
+    }
+};
+
 
 
 //Character creation 
@@ -185,12 +229,23 @@ var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, 1
 
 var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15, 6, 8, 5, 6, 9, 6)
 
-var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 20, 20, 10, 8, 10, 5, 8, 5)
+var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 19, 20, 10, 8, 10, 5, 8, 5)
 
 
 //test zone
 
-ell.trainHp()
+console.log("")
+console.log("----------------")
+console.log ("")
+console.log("What is(are) your action(s)?")
+console.log("")
+console.log("----------------")
+console.log ("")
+
+// Run tests here
+
+ell.eat("apple")
+ell.eat("apple")
 
 
 
