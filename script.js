@@ -250,6 +250,27 @@ ell.eat("apple")
 
 // JAVASCRIPT/HTML INTERACTION
 
+var startGame = $("#start")
+
+var gameBox = $("#game")
+
+var buttons = $("#buttons")
+
+var next =$("#next")
+
+startGame.on("click", function(){
+
+    var userName = prompt("Please name your character.")
+
+    user.name = userName
+
+    gameBox.html(`<h1>Character: ${user.name}</h1> Gold: ${user.gold} <br> class: ${user.type} <br> Description: ${user.description} <h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}`)
+
+    console.log(user)
+
+    buttons.html("<button id='next'>Start</button>")
+})
+
 
 
 

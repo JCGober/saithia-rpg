@@ -3,12 +3,13 @@
     padding: 20px;
     margin: 0 auto;
     text-align: center;
+    background-color: oldlace;
+    height: 400px;
+    margin-top: 35px;
 }
 
 body{
     background-color: papayawhip;
 }
 
-#game{
-    background-color: oldlace;
-}
+
