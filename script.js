@@ -1,6 +1,6 @@
 
 // Constructor for heroes
-class Hero{
+class RpgChar{
     constructor(name, description, type, gold, weapon, hitPoints, acuity, speed, wisdom, defence, magic, strength){
         this.name = name;
         this.description = description;
@@ -65,12 +65,13 @@ class Hero{
 //Character creation 
 
 //The user playing will control this character 
-var user = new Hero("user", "Close friend of Corinthe", "mage", 100, "None", 20, 5, 5, 5, 5, 5, 5)
+var user = new RpgChar("user", "Close friend of Corinthe", "mage", 100, "None", 20, 5, 5, 5, 5, 5, 5)
 
-var cor = new Hero("Corinthe", "Tribe leader", "mage", 100, "None", 20, 10, 8, 10, 10, 10, 7)
+var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 10, 8, 10, 10, 10, 7)
 
-var kel = new Hero("Kellian", "son of Corinthe", "mage", 100, "None", 15, 6, 8, 5, 6, 9, 6)
+var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 6, 8, 5, 6, 9, 6)
 
+var ell = new RpgChar()
 
 
 //test zone
