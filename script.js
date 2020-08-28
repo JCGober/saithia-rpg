@@ -28,6 +28,48 @@ class RpgChar{
 
     }
 
+    gamble(target){
+
+        console.log(`${this.name} asks to play a game of dice with ${target.name}`)
+
+        if ((Math.random()*10) + this.acuity > (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
+
+            target.gold = target.gold - 10
+            
+            this.gold = this.gold + 10
+
+            console.log(`${this.name} won 10 gold and now has ${this.gold} gold.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
+
+        } else if ((Math.random()*10) + this.acuity < (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
+
+            this.gold = this.gold - 10
+            
+            target.gold = target.gold + 10
+
+            console.log(`${this.name} has lost 10 gold and now has ${this.gold} gold.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
+
+        } else if (this.gold < 10){
+
+            console.log(`${this.name} doesn't have enough money to gamble with.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
+
+        } else if (target.gold < 10) {
+
+            console.log(`${target.name} doesn't have enough money to gamble with.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
+        }
+    }
+
     pickpocket(target){
 
         if(this.acuity > target.acuity && target.gold >= 5){
@@ -45,6 +87,7 @@ class RpgChar{
         } else {
             
             console.log(`${this.name} fails to pickpocket ${target.name}`)
+        
 
         }   
     }
@@ -76,4 +119,5 @@ var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 20, 10,
 
 //test zone
 
-kel.melee(cor)
+kel.gamble(ell)
+
