@@ -1,14 +1,14 @@
 
 // Constructor for heroes
 class RpgChar{
-    constructor(name, description, type, gold, weapon, currentHp, hitPoints, acuity, speed, wisdom, defence, magic, strength){
+    constructor(name, description, type, gold, weapon, currentHp, maxHp, acuity, speed, wisdom, defence, magic, strength){
         this.name = name;
         this.description = description;
         this.type = type
         this.gold = gold
         this. weapon = weapon;
         this.currentHp = currentHp
-        this.hitPoints = hitPoints;
+        this.maxHp = maxHp;
         this.acuity = acuity;
         this.speed = speed
         this.wisdom = wisdom;
@@ -124,11 +124,11 @@ class RpgChar{
 
         console.log(`${this.name} trains the HP skill. `)
 
-        if(this.hitPoints <= 100){
+        if(this.maxHp <= 100){
 
-            this.hitPoints = this.hitPoints + 1
+            this.maxHp = this.maxHp + 1
     
-            console.log(`${this.name}'s HP is now ${this.hitPoints}.`)
+            console.log(`${this.name}'s HP is now ${this.maxHp}.`)
             console.log("")
             console.log("----------------")
             console.log ("")
