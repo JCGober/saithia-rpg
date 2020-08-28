@@ -71,7 +71,7 @@ var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 10, 8
 
 var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 6, 8, 5, 6, 9, 6)
 
-var ell = new RpgChar()
+var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 20, 10, 8, 10, 5, 8, 5)
 
 
 //test zone
