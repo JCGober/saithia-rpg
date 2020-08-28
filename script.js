@@ -20,12 +20,17 @@ class RpgChar{
     greet(target) {
 
         console.log(`${this.name} says 'Greetings' to ${target.name}`)
+        console.log("")
+        console.log("----------------")
+        console.log ("")
     }
 
     examine(target){
 
         console.log(`${this.name} examines ${target.name}. Description: ${target.description}. Class: ${target.type}.`)
-
+        console.log("")
+        console.log("----------------")
+        console.log ("")
     }
 
     gamble(target){
@@ -72,6 +77,8 @@ class RpgChar{
 
     pickpocket(target){
 
+        console.log(`${this.name} attempts to pickpocket ${target.name}`)
+
         if(this.acuity > target.acuity && target.gold >= 5){
 
             target.gold = target.gold - 5
@@ -79,16 +86,23 @@ class RpgChar{
 
             console.log(`${this.name} successfully pickpocketed 5 gold from ${target.name}!`)
             console.log(`${this.name} now has ${this.gold} gold.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
 
         }else if (target.gold < 5){
 
             console.log("The target doesn't have any gold to steal!")
+            console.log("")
+            console.log("----------------")
+            console.log ("")
 
         } else {
             
             console.log(`${this.name} fails to pickpocket ${target.name}`)
-        
-
+            console.log("")
+            console.log("----------------")
+            console.log ("")
         }   
     }
 
@@ -99,6 +113,9 @@ class RpgChar{
         target.hitPoints -= this.strength
 
         console.log(`${target.name} has ${target.hitPoints} hp left `)
+        console.log("")
+        console.log("----------------")
+        console.log ("")
         // if(this.weapon === "sword"){
         // }
     }
@@ -119,5 +136,5 @@ var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 20, 10,
 
 //test zone
 
-kel.gamble(ell)
+
 
