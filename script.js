@@ -1,12 +1,13 @@
 
 // Constructor for heroes
 class RpgChar{
-    constructor(name, description, type, gold, weapon, hitPoints, acuity, speed, wisdom, defence, magic, strength){
+    constructor(name, description, type, gold, weapon, currentHp, hitPoints, acuity, speed, wisdom, defence, magic, strength){
         this.name = name;
         this.description = description;
         this.type = type
         this.gold = gold
         this. weapon = weapon;
+        this.currentHp = currentHp
         this.hitPoints = hitPoints;
         this.acuity = acuity;
         this.speed = speed
@@ -16,7 +17,11 @@ class RpgChar{
         this.strength = strength;
     }
     
-    // methods for heroes
+    // METHODS FOR RPGCHAR
+
+
+    // Social methods
+
     greet(target) {
 
         console.log(`${this.name} says 'Greetings' to ${target.name}`)
@@ -32,6 +37,11 @@ class RpgChar{
         console.log("----------------")
         console.log ("")
     }
+
+
+
+
+    //side skill methods
 
     gamble(target){
 
@@ -106,35 +116,81 @@ class RpgChar{
         }   
     }
 
+
+
+    //Training methods
+
+    trainHp(){
+
+        console.log(`${this.name} trains the HP skill. `)
+
+        if(this.hitPoints <= 100){
+
+            this.hitPoints = this.hitPoints + 1
+    
+            console.log(`${this.name}'s HP is now ${this.hitPoints}.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
+
+        } else {
+
+            console.log(`${this.name} has 100 HP. They do not need to train anymore.`)
+            console.log("")
+            console.log("----------------")
+            console.log ("")
+
+        }
+
+    }
+
+
+    trainAcuity(){
+
+
+    }
+    trainSpeed(){}
+    trainWisdom(){}
+    trainDefence(){}
+    trainMagic(){}
+    trainStrength(){}
+
+
+    //Combat methods 
+
     melee(target){
 
         console.log(`${this.name} attacks ${target.name}`)
 
-        target.hitPoints -= this.strength
+        target.currentHp -= this.strength
 
-        console.log(`${target.name} has ${target.hitPoints} hp left `)
+        console.log(`${target.name} has ${target.currentHp} hp left `)
         console.log("")
         console.log("----------------")
         console.log ("")
         // if(this.weapon === "sword"){
         // }
     }
+
+
 }
 
 
 //Character creation 
 
 //The user playing will control this character 
-var user = new RpgChar("user", "Close friend of Corinthe", "mage", 100, "None", 20, 5, 5, 5, 5, 5, 5)
+var user = new RpgChar("user", "Close friend of Corinthe", "mage", 100, "None", 20, 20, 5, 5, 5, 5, 5, 5)
 
-var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 10, 8, 10, 10, 10, 7)
+var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, 10, 8, 10, 10, 10, 7)
 
-var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 6, 8, 5, 6, 9, 6)
+var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15, 6, 8, 5, 6, 9, 6)
 
-var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 20, 10, 8, 10, 5, 8, 5)
+var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 20, 20, 10, 8, 10, 5, 8, 5)
 
 
 //test zone
+
+ell.trainHp()
 
 
 
