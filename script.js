@@ -47,6 +47,17 @@ class Hero{
 
         }   
     }
+
+    melee(target){
+
+        console.log(`${this.name} attacks ${target.name}`)
+
+        target.hitPoints -= this.strength
+
+        console.log(`${target.name} has ${target.hitPoints} hp left `)
+        // if(this.weapon === "sword"){
+        // }
+    }
 }
 
 
@@ -63,7 +74,4 @@ var kel = new Hero("Kellian", "son of Corinthe", 100, "None", 15, 6, 8, 5, 6, 9,
 
 //test zone
 
-kel.pickpocket(user)
-
-console.log(`${kel.name}: ${kel.gold} gold`)
-console.log(`${user.name}: ${user.gold} gold`)
+kel.melee(cor)
