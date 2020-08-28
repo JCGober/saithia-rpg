@@ -180,8 +180,6 @@ class RpgChar{
 
         if(food === "apple"){
 
-            
-
             if(this.currentHp < this.maxHp){
 
                 this.currentHp += 1
@@ -191,15 +189,12 @@ class RpgChar{
 
             }else if(this.currentHp === this.maxHp ){
 
-
-            console.log(`${this.name} isn't hungry`)
+                console.log(`${this.name} isn't hungry`)
 
             }else{
 
                 console.log(`${this.name} trys to eat ${food} but throws it up.`)
-
             }
-
         }
 
             //Insurance so that health doesnt exceed max HP level
