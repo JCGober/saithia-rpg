@@ -1,0 +1,14 @@
+#main {
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+body{
+    background-color: papayawhip;
+}
+
+#game{
+    background-color: oldlace;
+}
