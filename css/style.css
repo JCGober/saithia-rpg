@@ -1,4 +1,4 @@
-#main {
+.main {
     width: 80%;
     padding: 20px;
     margin: 0 auto;
@@ -6,6 +6,18 @@
     background-color: oldlace;
     height: 400px;
     margin-top: 35px;
+}
+
+.main2{
+    width: 80%;
+    padding: 20px;
+    margin: 0 auto;
+    
+    background-color: oldlace;
+    height: auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+
 }
 
 body{
