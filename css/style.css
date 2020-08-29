@@ -10,6 +10,7 @@
 
 body{
     background-color: papayawhip;
+    font-family: 'Philosopher', sans-serif;
 }
 
 /* next buttons  */
@@ -38,6 +39,11 @@ body{
 
 button{
     padding: 1px;
+    font-family: 'Philosopher', sans-serif;
+}
+
+fieldset{
+    font-family: 'Philosopher', sans-serif;
 }
 
 
