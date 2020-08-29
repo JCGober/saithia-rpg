@@ -36,6 +36,10 @@ body{
     display: none;
 }
 
+button{
+    padding: 1px;
+}
+
 
 
 /* Chapters */
