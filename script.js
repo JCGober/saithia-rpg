@@ -218,7 +218,7 @@ class RpgChar{
 //Character creation 
 
 //The user playing will control this character 
-var user = new RpgChar("user", "Close friend of Corinthe", "mage", 100, "None", 20, 20, 5, 5, 5, 5, 5, 5)
+var user = new RpgChar("user", "Close friend of Corinthe", "mage", 0, "None", 20, 20, 5, 5, 5, 5, 5, 5)
 
 var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, 10, 8, 10, 10, 10, 7)
 
