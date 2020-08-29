@@ -12,4 +12,36 @@ body{
     background-color: papayawhip;
 }
 
+/* next buttons  */
+
+#nextButtons{
+    text-align: center;
+}
+
+#next0{
+    display: none;
+    margin-top: 5px;
+}
+#next1{
+    display: none;
+    margin-top: 30px;
+}
+#next2{
+    display: none;
+}
+#next3{
+    display: none;
+}
+#next4{
+    display: none;
+}
+
+
+
+/* Chapters */
+
+#chap1{
+    display: none;
+}
+
 

@@ -262,6 +262,8 @@ var next =$("#next")
 
 var intro = $("#intro")
 
+var next0 = $("#next0")
+
 startGame.on("click", function(){
 
     var userName = prompt("Please name your character.")
@@ -272,24 +274,36 @@ startGame.on("click", function(){
 
     console.log(user)
 
-    var next1 = $("<button>")
-
-    next2.attr("id", "next2")
-
-    next2.text("Start")
-
-    next2.appendTo(buttons)
-
     intro.attr("style", "display: none;")
 
     main.attr("style", "text-align: center;")
 
+    next0.attr("style", "display: initial;")
+
+})
+
+var chap1 = $("#chap1")
+
+var next1 = $("#next1")
+
+next0.on("click", function(){
     
+    next0.attr("style", "display: none;")
+
+    gameBox.html("")
+
+    chap1.attr("style", "display: initial;")
+
+    next1.attr("style", "display: initial;")
 
 
 })
 
-var next2 = $("#next2")
+next1.on("click", function(){
+
+    main.html("")
+})
+
 
 
 
