@@ -4,8 +4,9 @@
     margin: 0 auto;
     
     background-color: oldlace;
-    height: 400px;
+    height: auto;
     margin-top: 35px;
+    margin-bottom: 35px;
 }
 
 .main2{
