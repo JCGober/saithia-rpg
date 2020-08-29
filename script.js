@@ -252,11 +252,15 @@ ell.eat("apple")
 
 var startGame = $("#start")
 
+var main = $("#main")
+
 var gameBox = $("#game")
 
 var buttons = $("#buttons")
 
 var next =$("#next")
+
+var intro = $("#intro")
 
 startGame.on("click", function(){
 
@@ -268,8 +272,24 @@ startGame.on("click", function(){
 
     console.log(user)
 
-    buttons.html("<button id='next'>Start</button>")
+    var next1 = $("<button>")
+
+    next2.attr("id", "next2")
+
+    next2.text("Start")
+
+    next2.appendTo(buttons)
+
+    intro.attr("style", "display: none;")
+
+    main.attr("style", "text-align: center;")
+
+    
+
+
 })
+
+var next2 = $("#next2")
 
 
 
