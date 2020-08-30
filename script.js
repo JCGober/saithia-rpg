@@ -26,27 +26,7 @@ class RpgChar{
     
     // METHODS FOR RPGCHAR
 
-
     // Social methods
-
-    greet(target) {
-
-        console.log(`${this.name} says 'Greetings' to ${target.name}`)
-        console.log("")
-        console.log("----------------")
-        console.log ("")
-    }
-
-    examine(target){
-
-        console.log(`${this.name} examines ${target.name}. Description: ${target.description}. Class: ${target.type}.`)
-        console.log("")
-        console.log("----------------")
-        console.log ("")
-    }
-
-
-
 
     //Side skill methods
 
@@ -202,6 +182,26 @@ class RpgChar{
         gatherAction.prependTo(actionBox1)
     }
 
+    investigate(){
+
+        var investigateAction = $("<div>")
+
+        var check = Random.Math()
+
+        if(check < .33){
+
+            console.log("Everything is safe.")
+
+        } else if(check >.33 && check < .66){
+
+            console.log("You see a bear, but its a good ways in the distance")
+
+        }else if(check < .66){
+
+            console.log("A bear tears out of the brush and threatens you")
+        }
+    }
+
 
 
     //Training methods
@@ -231,32 +231,8 @@ class RpgChar{
     }
 
 
-    trainAcuity(){
-
-
-    }
-    trainSpeed(){}
-    trainWisdom(){}
-    trainDefence(){}
-    trainMagic(){}
-    trainStrength(){}
-
-
     //Combat methods 
 
-    melee(target){
-
-        console.log(`${this.name} attacks ${target.name}`)
-
-        target.currentHp -= this.strength
-
-        console.log(`${target.name} has ${target.currentHp} hp left `)
-        console.log("")
-        console.log("----------------")
-        console.log ("")
-        // if(this.weapon === "sword"){
-        // }
-    }
 
     // Healing Methods
 
@@ -300,6 +276,7 @@ class RpgChar{
 };
 
 
+// Constructor for Animals
 
 class Animal{
     constructor(name, currentHp, maxHp, speed, defence, strength){
@@ -310,12 +287,6 @@ class Animal{
         this.defence = defence
         this.strength = strength
     }
-
-
-
-
-
-
 
 
 }
