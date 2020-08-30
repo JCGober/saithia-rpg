@@ -69,3 +69,54 @@ fieldset{
 }
 
 
+/* Game area 1 */
+
+#game1{
+    display: none;
+}
+
+#statsBox{
+    float: left;
+    margin: 16px;
+    padding: 8px;
+    background-color: white;
+    border: double black
+}
+
+#decisions1{
+
+    float: left;
+    margin: 25px;
+
+}
+
+.decBut{
+    margin-top: 20px;
+}
+
+#goals1{
+
+    float: left;
+    margin-top: 60px;
+    margin-left: 20px;
+    background-color: white;
+    padding: 5px;
+    border: solid black
+}
+
+#actionBox1{
+    padding: 2px;
+
+    float: left;
+
+    width: 340px;
+    height: 365px;
+
+    background-color: white;
+    border: solid black
+
+
+}
+
+/* Game Area 2 */
+

@@ -1,3 +1,10 @@
+// Miscelanious Variables
+var fishBank = $("#fishBank")
+var fishCaught = 0;
+
+var berryBank = $("#basketsGathered")
+var basketsOfBerry = 0;
+
 
 // Constructor for heroes
 class RpgChar{
@@ -114,6 +121,85 @@ class RpgChar{
             console.log("----------------")
             console.log ("")
         }   
+    }
+
+
+    cast(){
+
+        var fishAction = $("<div>")
+
+        var castDiv = $("<div>")
+        castDiv.text("You cast a net into the water.")
+        console.log('You cast a net into the water')
+
+        castDiv.appendTo(fishAction)
+        
+
+            var fishInNet = (Math.floor(Math.random()*7))
+
+            console.log(fishInNet)
+
+            fishCaught = fishCaught + fishInNet
+
+            if(fishInNet > 5){
+
+                user.strength = user.strength + 1 
+
+                statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+                var gainStrengthDiv = ($("<div>"))
+                gainStrengthDiv.text("You Got a big haul and gained a strengh point!")
+                gainStrengthDiv.appendTo(fishAction)
+
+            }else{
+
+                var catchAmount = $("<div>")
+                catchAmount.text(`You caught ${fishInNet} fish!`)
+                catchAmount.appendTo(fishAction)
+            }
+
+            var spaceDiv = $("<div>")
+            spaceDiv.text("---------------")
+            spaceDiv.appendTo(fishAction)
+
+            fishAction.prependTo(actionBox1)
+
+            fishBank.text(fishCaught)
+    }
+
+    gatherBerries(){
+
+        var gatherAction = $("<div>")
+
+        var goGathDiv = $("<div>")
+        goGathDiv.text("You head out to the surrounding wild to gather some berries.")
+        goGathDiv.appendTo(gatherAction)
+
+        basketsOfBerry = basketsOfBerry + 1
+
+        var slightOfHand = Math.random()
+
+        if (slightOfHand > 0.85){
+
+            this.acuity = this.acuity + 1
+
+            statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+            var gainAcuityDiv = $("<div>")
+            gainAcuityDiv.text("You avoided all thorny branches and gained an acuity point!")
+            gainAcuityDiv.appendTo(gatherAction)
+        }
+
+        var berrySucDiv= $("<div>")
+        berrySucDiv.text("You collect 1 basket of Wildberries!")
+        berrySucDiv.appendTo(gatherAction)
+
+        berryBank.text(basketsOfBerry)
+
+        var spaceDiv = $("<div>")
+        spaceDiv.text("---------------")
+        spaceDiv.appendTo(gatherAction)
+
+        gatherAction.prependTo(actionBox1)
     }
 
 
@@ -239,8 +325,8 @@ console.log ("")
 
 // Run tests here
 
-ell.eat("apple")
-ell.eat("apple")
+
+
 
 
 
@@ -266,7 +352,7 @@ var next0 = $("#next0")
 
 startGame.on("click", function(){
 
-    var userName = prompt("Please name your character.")
+    var userName = prompt("Please name your character. (0-10 characters)")
 
     user.name = userName
 
@@ -299,10 +385,58 @@ next0.on("click", function(){
 
 })
 
+//Chapter 1
+
+var game1 = $("#game1")
+
+var statBox = $("#statsBox")
+
+var actionBox1 = $("#actionBox1")
+
 next1.on("click", function(){
 
-    main.html("")
+    chap1.attr("style", "display: none;")
+
+    next1.attr("style", "display: none;")
+
+    main.attr("style", "height: 400px")
+
+    statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+    console.log(user.name)
+
+    game1.attr("style", "display: initial;")
 })
+
+var catchFish = $("#cast")
+
+catchFish.on("click", function(){
+
+    user.cast()
+
+})
+
+var gather = $("#gather")
+
+gather.on("click", function(){
+
+    user.gatherBerries()
+})
+
+var next2 = $("#next2")
+
+if(fishcaught > 30 && basketsOfBerry > 15){
+
+    next2.attr("style", "display: initial;")
+
+}
+
+
+
+
+
+
+
+
 
 
 
