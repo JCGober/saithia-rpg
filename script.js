@@ -8,7 +8,7 @@ var basketsOfBerry = 0;
 
 // Constructor for heroes
 class RpgChar{
-    constructor(name, description, type, gold, weapon, currentHp, maxHp, acuity, speed, wisdom, defence, magic, strength){
+    constructor(name, description, type, gold, weapon, currentHp, maxHp, alive, acuity, speed, wisdom, defence, magic, strength){
         this.name = name;
         this.description = description;
         this.type = type
@@ -16,6 +16,7 @@ class RpgChar{
         this. weapon = weapon;
         this.currentHp = currentHp
         this.maxHp = maxHp;
+        this.alive = alive
         this.acuity = acuity;
         this.speed = speed
         this.wisdom = wisdom;
@@ -182,6 +183,7 @@ class RpgChar{
         gatherAction.prependTo(actionBox1)
     }
 
+
     investigate(){
 
         var investigateAction = $("<div>")
@@ -198,7 +200,9 @@ class RpgChar{
             safe.text("Everything is safe and secure.")
             safe.appendTo(investigateAction)
 
-            console.log("Everything is safe.")
+            var spaceDiv = $("<div>")
+            spaceDiv.text("---------------")
+            spaceDiv.appendTo(investigateAction)
 
         } else if(check >.33 && check < .66){
 
@@ -208,12 +212,19 @@ class RpgChar{
 
             console.log("You see a bear, but it's a good ways in the distance")
 
+            var spaceDiv = $("<div>")
+            spaceDiv.text("---------------")
+            spaceDiv.appendTo(investigateAction)
+
 
         }else if(check > .66){
 
-            console.log("A bear tears out of the brush and threatens you!")
+            console.log("A bear tears out of the brush and chalenges you!")
+            var bearChallenge = $("<div>")
+            bearChallenge.text("A bear tears out of the brush and chalenges you!")
+            bearChallenge.appendTo(investigateAction)
 
-            var willFight = confirm("Will you fight the bear? (Hit 'Ok' to fight, 'cancel' to run!)")
+            var willFight = confirm("A bear tears out of the brush and chalenges you! Will you fight the bear? (Hit 'Ok' to fight, 'cancel' to run!)")
 
             var fightBear = $("<div>")
 
@@ -223,20 +234,43 @@ class RpgChar{
                 yesFightBear.text("You circle the Bear and prepare to fight it!")
                 yesFightBear.appendTo(investigateAction)
 
+                // while(bear.alive === true || user.alive === true ){
+
+                //     bear.currentHp = bear.currentHp - user.strength
+
+                //     user.currentHp = user.currentHp - bear.strength
+
+                //     if(bear.currentHp <= 0){
+                //         bear.alive = false
+                //         console.log("The bear died")
+                //     }
+                //     if(user.hp <= 0){
+                //         user.alive = false 
+                //         console.log(`${user.name} died. GAME OVER`)
+                //     }
+                // }
+
+
+                var spaceDiv = $("<div>")
+                spaceDiv.text("---------------")
+                spaceDiv.appendTo(investigateAction)
+
 
             }else if(willFight === false){
 
                 var noFightBear = $("<div>")
                 noFightBear.text("You lead the bear a good ways from camp and escape unharmed!")
-                noFightBear.prependTo(investigateAction)
+                noFightBear.appendTo(investigateAction)
 
+                var spaceDiv = $("<div>")
+                spaceDiv.text("---------------")
+                spaceDiv.appendTo(investigateAction)
             }
 
         }
 
-        investigateAction.appendTo(actionBox1)
+        investigateAction.prependTo(actionBox1)
     }
-
 
 
     //Training methods
@@ -262,7 +296,6 @@ class RpgChar{
             console.log ("")
 
         }
-
     }
 
 
@@ -314,14 +347,19 @@ class RpgChar{
 // Constructor for Animals
 
 class Animal{
-    constructor(name, currentHp, maxHp, speed, defence, strength){
+    constructor(name, currentHp, maxHp, alive, speed, defence, strength){
         this.name = name
         this.currentHp = currentHp
         this.maxHp = maxHp
+        this.alive = alive
         this.speed = speed 
         this.defence = defence
         this.strength = strength
     }
+
+    // fight(target{
+
+    // })
 
 
 }
@@ -333,17 +371,17 @@ class Animal{
 // HUMANS
 
 //The user playing will control this character 
-var user = new RpgChar("user", "Close friend of Corinthe", "mage", 0, "None", 20, 20, 5, 5, 5, 5, 5, 5)
+var user = new RpgChar("user", "Close friend of Corinthe", "mage", 0, "None", 20, 20, true, 5, 5, 5, 5, 5, 5)
 
-var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, 10, 8, 10, 10, 10, 7)
+var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, true,  10, 8, 10, 10, 10, 7)
 
-var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15, 6, 8, 5, 6, 9, 6)
+var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15, true, 6, 8, 5, 6, 9, 6)
 
-var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 19, 20, 10, 8, 10, 5, 8, 5)
+var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 19, 20, true, 10, 8, 10, 5, 8, 5)
 
 // ANIMALS
 
-var bear = new Animal("Snarling Bear", 12, 12, 2, 3, 6)
+var bear = new Animal("Snarling Bear", 12, 12, true, 2, 3, 6)
 
 
 //test zone
