@@ -301,7 +301,30 @@ class RpgChar{
 
 
 
-//Character creation 
+class Animal{
+    constructor(name, currentHp, maxHp, speed, defence, strength){
+        this.name = name
+        this.currentHp = currentHp
+        this.maxHp = maxHp
+        this.speed = speed 
+        this.defence = defence
+        this.strength = strength
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+//CHARACTER CREATION ZONE
+
+// HUMANS
 
 //The user playing will control this character 
 var user = new RpgChar("user", "Close friend of Corinthe", "mage", 0, "None", 20, 20, 5, 5, 5, 5, 5, 5)
@@ -311,6 +334,10 @@ var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, 1
 var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15, 6, 8, 5, 6, 9, 6)
 
 var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 19, 20, 10, 8, 10, 5, 8, 5)
+
+// ANIMALS
+
+var bear = new Animal("Snarling Bear", 12, 12, 2, 3, 6)
 
 
 //test zone
@@ -393,6 +420,8 @@ var statBox = $("#statsBox")
 
 var actionBox1 = $("#actionBox1")
 
+var next2 = $("#next2")
+
 next1.on("click", function(){
 
     chap1.attr("style", "display: none;")
@@ -405,6 +434,9 @@ next1.on("click", function(){
     console.log(user.name)
 
     game1.attr("style", "display: initial;")
+
+    next2.attr("style", "display: initial;")
+
 })
 
 var catchFish = $("#cast")
@@ -422,13 +454,32 @@ gather.on("click", function(){
     user.gatherBerries()
 })
 
-var next2 = $("#next2")
 
-if(fishcaught > 30 && basketsOfBerry > 15){
 
-    next2.attr("style", "display: initial;")
 
-}
+// Depart to next chapter
+var next3 = $("#next3")
+
+
+next2.on("click", function(){
+
+    if(fishCaught > 30 && basketsOfBerry > 15){
+
+       main.html("<h1>CHAPTER 2 COMING SOON!</h1>")
+       main.attr("style", "text-align: center;")
+
+       next2.attr("style", "display: none;")
+
+       next3.attr("style", "display: initial;")
+
+    } else {
+        alert("Your people are not prepared for the journey!")
+    }
+
+
+})
+
+
 
 
 
