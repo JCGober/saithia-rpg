@@ -186,20 +186,55 @@ class RpgChar{
 
         var investigateAction = $("<div>")
 
-        var check = Random.Math()
+        var investDiv = $("<div>")
+        investDiv.text("You take a walk around your tribes encampment searching for any threats")
+        investDiv.appendTo(investigateAction)
+
+        var check = Math.random()
 
         if(check < .33){
+
+            var safe = $("<div>")
+            safe.text("Everything is safe and secure.")
+            safe.appendTo(investigateAction)
 
             console.log("Everything is safe.")
 
         } else if(check >.33 && check < .66){
 
-            console.log("You see a bear, but its a good ways in the distance")
+            var possibleDanger= $("<div>")
+            possibleDanger.text("You see a bear in the distance, but it's several miles away from camp.")
+            possibleDanger.appendTo(investigateAction)
 
-        }else if(check < .66){
+            console.log("You see a bear, but it's a good ways in the distance")
 
-            console.log("A bear tears out of the brush and threatens you")
+
+        }else if(check > .66){
+
+            console.log("A bear tears out of the brush and threatens you!")
+
+            var willFight = confirm("Will you fight the bear? (Hit 'Ok' to fight, 'cancel' to run!)")
+
+            var fightBear = $("<div>")
+
+            if(willFight === true){
+
+                var yesFightBear = $("<div>")
+                yesFightBear.text("You circle the Bear and prepare to fight it!")
+                yesFightBear.appendTo(investigateAction)
+
+
+            }else if(willFight === false){
+
+                var noFightBear = $("<div>")
+                noFightBear.text("You lead the bear a good ways from camp and escape unharmed!")
+                noFightBear.prependTo(investigateAction)
+
+            }
+
         }
+
+        investigateAction.appendTo(actionBox1)
     }
 
 
@@ -423,6 +458,13 @@ var gather = $("#gather")
 gather.on("click", function(){
 
     user.gatherBerries()
+})
+
+var investigate = $("#investigate")
+
+investigate.on("click", function(){
+
+    user.investigate()
 })
 
 
