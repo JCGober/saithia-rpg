@@ -289,7 +289,7 @@ class RpgChar{
 
                     bearsAmount = bearsAmount + 1
                     bearsBank.text(bearsAmount)
-                    
+
                 }else if (trickRoll < 4 && trickRoll > 1){
 
                     var yesFightBear = $("<div>")
@@ -349,7 +349,7 @@ class RpgChar{
 
                 statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
 
-                } else if (runRoll > 1 && failRoll < 4){
+                } else if (runRoll > 1 && runRoll < 4){
 
                     var noFightBear = $("<div>")
                     noFightBear.text("You throw some of your food at the bear and run!")
@@ -359,15 +359,21 @@ class RpgChar{
 
                     fishCaught = fishCaught - 3
 
+                    fishBank.text(fishCaught)
+                    berryBank.text(basketsOfBerry)
+
                 }else{
 
-                    var noFightBear = $("<div>")
-                    noFightBear.text("The bear won't stop chasing you so you have to drop all of the food you have!")
-                    noFightBear.appendTo(investigateAction)
+                    var cowardice = $("<div>")
+                    cowardice.text("The bear won't stop chasing you so you have to drop all of the food you have!")
+                    cowardice.appendTo(investigateAction)
 
                     basketsOfBerry = 0;
 
                     fishCaught = 0;
+
+                    fishBank.text(fishCaught)
+                    berryBank.text(basketsOfBerry)
 
                 }
 
