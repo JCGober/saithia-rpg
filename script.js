@@ -31,78 +31,78 @@ class RpgChar{
 
     //Side skill methods
 
-    gamble(target){
+    // gamble(target){
 
-        console.log(`${this.name} asks to play a game of dice with ${target.name}`)
+    //     console.log(`${this.name} asks to play a game of dice with ${target.name}`)
 
-        if ((Math.random()*10) + this.acuity > (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
+    //     if ((Math.random()*10) + this.acuity > (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
 
-            target.gold = target.gold - 10
+    //         target.gold = target.gold - 10
             
-            this.gold = this.gold + 10
+    //         this.gold = this.gold + 10
 
-            console.log(`${this.name} won 10 gold and now has ${this.gold} gold.`)
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
+    //         console.log(`${this.name} won 10 gold and now has ${this.gold} gold.`)
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
 
-        } else if ((Math.random()*10) + this.acuity < (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
+    //     } else if ((Math.random()*10) + this.acuity < (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
 
-            this.gold = this.gold - 10
+    //         this.gold = this.gold - 10
             
-            target.gold = target.gold + 10
+    //         target.gold = target.gold + 10
 
-            console.log(`${this.name} has lost 10 gold and now has ${this.gold} gold.`)
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
+    //         console.log(`${this.name} has lost 10 gold and now has ${this.gold} gold.`)
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
 
-        } else if (this.gold < 10){
+    //     } else if (this.gold < 10){
 
-            console.log(`${this.name} doesn't have enough money to gamble with.`)
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
+    //         console.log(`${this.name} doesn't have enough money to gamble with.`)
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
 
-        } else if (target.gold < 10) {
+    //     } else if (target.gold < 10) {
 
-            console.log(`${target.name} doesn't have enough money to gamble with.`)
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
-        }
-    }
+    //         console.log(`${target.name} doesn't have enough money to gamble with.`)
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
+    //     }
+    // }
 
-    pickpocket(target){
+    // pickpocket(target){
 
-        console.log(`${this.name} attempts to pickpocket ${target.name}`)
+    //     console.log(`${this.name} attempts to pickpocket ${target.name}`)
 
-        if(this.acuity > target.acuity && target.gold >= 5){
+    //     if(this.acuity > target.acuity && target.gold >= 5){
 
-            target.gold = target.gold - 5
-            this.gold = this.gold + 5
+    //         target.gold = target.gold - 5
+    //         this.gold = this.gold + 5
 
-            console.log(`${this.name} successfully pickpocketed 5 gold from ${target.name}!`)
-            console.log(`${this.name} now has ${this.gold} gold.`)
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
+    //         console.log(`${this.name} successfully pickpocketed 5 gold from ${target.name}!`)
+    //         console.log(`${this.name} now has ${this.gold} gold.`)
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
 
-        }else if (target.gold < 5){
+    //     }else if (target.gold < 5){
 
-            console.log("The target doesn't have any gold to steal!")
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
+    //         console.log("The target doesn't have any gold to steal!")
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
 
-        } else {
+    //     } else {
             
-            console.log(`${this.name} fails to pickpocket ${target.name}`)
-            console.log("")
-            console.log("----------------------------")
-            console.log ("")
-        }   
-    }
+    //         console.log(`${this.name} fails to pickpocket ${target.name}`)
+    //         console.log("")
+    //         console.log("----------------------------")
+    //         console.log ("")
+    //     }   
+    // }
 
 
     cast(){
@@ -398,28 +398,6 @@ class RpgChar{
 };
 
 
-// Constructor for Animals
-
-class Animal{
-    constructor(name, currentHp, maxHp, alive, speed, defence, strength){
-        this.name = name
-        this.currentHp = currentHp
-        this.maxHp = maxHp
-        this.alive = alive
-        this.speed = speed 
-        this.defence = defence
-        this.strength = strength
-    }
-
-    // fight(target{
-
-    // })
-
-
-}
-
-
-
 //CHARACTER CREATION ZONE
 
 // HUMANS
@@ -449,14 +427,6 @@ console.log("----------------------------")
 console.log ("")
 
 // Run tests here
-
-
-
-
-
-
-
-
 
 
 // JAVASCRIPT/HTML INTERACTION
@@ -558,8 +528,6 @@ investigate.on("click", function(){
 
     user.investigate()
 })
-
-
 
 
 // Depart to next chapter
