@@ -697,6 +697,14 @@ next2.on("click", function(){
 
 // CHAPTER 2 
 
+next3.on("click", function(){
+
+    main.html("<h1> COMING SOON! </h1>")
+    main.attr("style", "text-align: center;")
+
+    next3.attr("style", "display: none;")
+})
+
 
 
 
