@@ -540,6 +540,9 @@ console.log ("")
 
 // JAVASCRIPT/HTML INTERACTION
 
+
+//INTRO
+
 var startGame = $("#start")
 
 var main = $("#main")
@@ -553,6 +556,7 @@ var next =$("#next")
 var intro = $("#intro")
 
 var next0 = $("#next0")
+
 
 startGame.on("click", function(){
 
@@ -589,7 +593,7 @@ next0.on("click", function(){
 
 })
 
-//Chapter 1
+// CHAPTER 1
 
 var game1 = $("#game1")
 
@@ -673,9 +677,9 @@ next2.on("click", function(){
     } else {
         alert("Your people are not prepared for the journey! You need a storehouse of at least 30 fish and 15 baskets of wildberries to depart.")
     }
-
-
 })
+
+// CHAPTER 2 
 
 
 
