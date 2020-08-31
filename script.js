@@ -659,20 +659,36 @@ exper.on("click", function(){
 })
 
 
-// Depart to next chapter
+// Depart to next chapter/
 var next3 = $("#next3")
+
+var chap2 = $("#chap2")
+
 
 
 next2.on("click", function(){
 
     if(fishCaught > 30 && basketsOfBerry > 15){
 
-       main.html("<h1>CHAPTER 2 COMING SOON!</h1>")
-       main.attr("style", "text-align: center;")
+    //    main.html("<h1>CHAPTER 2 COMING SOON!</h1>")
+    //    main.attr("style", "text-align: center;")
 
+        // REMOVE from screen
        next2.attr("style", "display: none;")
 
+       game1.attr("style", "display: none;")
+
+       actionBox1.attr("style", "display: none;")
+
+
+        // ADD to screen
        next3.attr("style", "display: initial;")
+
+       chap2.attr("style", "display: initial;")
+
+       main.attr("style", "height: auto;")
+
+       
 
     } else {
         alert("Your people are not prepared for the journey! You need a storehouse of at least 30 fish and 15 baskets of wildberries to depart.")

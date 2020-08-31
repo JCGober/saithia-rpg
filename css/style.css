@@ -68,6 +68,11 @@ fieldset{
     text-align: left;
 }
 
+#chap2{
+    display: none;
+    text-align: left;
+}
+
 
 /* Game area 1 */
 
@@ -116,9 +121,9 @@ fieldset{
     border: solid black;
 
     overflow: auto;
-
-
 }
 
 /* Game Area 2 */
+
+
 
