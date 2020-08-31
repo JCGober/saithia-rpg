@@ -147,6 +147,8 @@ class RpgChar{
             fishBank.text(fishCaught)
     }
 
+
+
     gatherBerries(){
 
         var gatherAction = $("<div>")
@@ -182,6 +184,7 @@ class RpgChar{
 
         gatherAction.prependTo(actionBox1)
     }
+
 
 
     investigate(){
@@ -245,22 +248,7 @@ class RpgChar{
                     user.wisdom = user.wisdom +1
     
                     statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
-                    
-                    // while(bear.alive === true || user.alive === true ){
-    
-                    //     bear.currentHp = bear.currentHp - user.strength
-    
-                    //     user.currentHp = user.currentHp - bear.strength
-    
-                    //     if(bear.currentHp <= 0){
-                    //         bear.alive = false
-                    //         console.log("The bear died")
-                    //     }
-                    //     if(user.hp <= 0){
-                    //         user.alive = false 
-                    //         console.log(`${user.name} died. GAME OVER`)
-                    //     }
-                    // }
+
                 }else if (trickRoll < 4 && trickRoll > 1){
 
                     var yesFightBear = $("<div>")
@@ -283,20 +271,15 @@ class RpgChar{
 
                     }
 
-    
                     statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
-
 
                 }else{
 
-                    var death =  alert("While leading the bear awy you trip over a log and are mauled to death.")
+                    var death =  alert("While leading the bear away you trip over a log and are mauled to death.")
                     main.html("<h1> GAME OVER </h1>")
                     main.attr("style", "text-align: center;")
                     next2.attr("style", "display: none")
-
                 }
-
-
 
                 var spaceDiv = $("<div>")
                 spaceDiv.text("----------------------------")
@@ -306,7 +289,7 @@ class RpgChar{
             }else if(trickBear === false){
 
                 var runRoll = Math.floor(Math.random() * user.speed)
-                console.log(failRoll)
+                console.log(runRoll)
 
                 if(runRoll >= 4){
 
@@ -321,8 +304,6 @@ class RpgChar{
                 user.speed = user.speed +1
 
                 statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
-
-
 
                 } else if (runRoll > 1 && failRoll < 4){
 
@@ -345,14 +326,75 @@ class RpgChar{
                     fishCaught = 0;
 
                 }
+
                 var spaceDiv = $("<div>")
                 spaceDiv.text("----------------------------")
                 spaceDiv.appendTo(investigateAction)
             }
-
         }
 
         investigateAction.prependTo(actionBox1)
+    }
+
+
+
+    eatMeal(){
+
+        var mealAction = $("<div>")
+
+        if (fishCaught >= 10 && basketsOfBerry >= 5){
+
+            this.currentHp = this.maxHp
+            statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+
+            var meal = $("<div>")
+            meal.text("You sit down around the fire for a meal with your tribesmen. Your HP is restored.")
+            meal.appendTo(mealAction)
+    
+            var depletion = $("<div>")
+            depletion.text("You deplete 10 fish and 5 baskets of berries from your stores.")
+            depletion.appendTo(mealAction)
+
+            fishCaught = fishCaught - 10
+
+            fishBank.text(fishCaught)
+
+            basketsOfBerry = basketsOfBerry - 5
+
+            berryBank.text(basketsOfBerry)
+
+            
+
+            var mealRoll = Math.random()
+
+            if(mealRoll > .6){
+
+                var gainMaxHp = $("<div>")
+                gainMaxHp.text("You gained an HP point!")
+                gainMaxHp.appendTo(mealAction)
+
+                this.maxHp = this.maxHp +1
+                this.currentHp = this.currentHp +1
+
+                statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+
+            }
+
+        } else {
+
+            var notEnough = $("<div>")
+            notEnough.text("You don't have enough in your food stores.")
+            notEnough.appendTo(mealAction)
+
+        }
+
+        var spaceDiv = $("<div>")
+        spaceDiv.text("----------------------------")
+        spaceDiv.appendTo(mealAction)
+
+        mealAction.prependTo(actionBox1)
     }
 
 
@@ -410,10 +452,6 @@ var cor = new RpgChar("Corinthe", "Tribe leader", "mage", 100, "None", 20, 20, t
 var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15, true, 6, 8, 5, 6, 9, 6)
 
 var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 19, 20, true, 10, 8, 10, 5, 8, 5)
-
-// ANIMALS
-
-var bear = new Animal("Snarling Bear", 12, 12, true, 2, 3, 6)
 
 
 //test zone
@@ -527,6 +565,14 @@ var investigate = $("#investigate")
 investigate.on("click", function(){
 
     user.investigate()
+})
+
+var meal = $("#meal")
+
+meal.on("click", function(){
+
+    user.eatMeal()
+
 })
 
 
