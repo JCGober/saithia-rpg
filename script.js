@@ -243,7 +243,7 @@ class RpgChar{
             spaceDiv.text("----------------------------")
             spaceDiv.appendTo(investigateAction)
 
-        } else if(check >.25&& check < .85){
+        } else if(check >.25 && check < .8){
 
             var possibleDanger= $("<div>")
             possibleDanger.text("You see a bear in the distance, but it's several miles away from camp.")
@@ -255,7 +255,7 @@ class RpgChar{
             spaceDiv.text("----------------------------")
             spaceDiv.appendTo(investigateAction)
 
-        }else if(check > .85){
+        }else if(check > .80){
 
             console.log("A bear tears out of the brush and chalenges you!")
             var bearChallenge = $("<div>")
@@ -401,19 +401,17 @@ class RpgChar{
 
             var mealRoll = Math.random()
 
-            if(mealRoll > .6){
+                if(mealRoll > .6){
 
-                var gainMaxHp = $("<div>")
-                gainMaxHp.text("You gained an HP point!")
-                gainMaxHp.appendTo(mealAction)
+                    var gainMaxHp = $("<div>")
+                    gainMaxHp.text("You gained an HP point!")
+                    gainMaxHp.appendTo(mealAction)
 
-                this.maxHp = this.maxHp +1
-                this.currentHp = this.currentHp +1
+                    this.maxHp = this.maxHp +1
+                    this.currentHp = this.currentHp +1
 
-                statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
-
-
-            }
+                    statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+                }
 
         } else {
 
@@ -471,15 +469,16 @@ class RpgChar{
 
             user.currentHp = user.currentHp - 5;
 
-            if (user.currentHp <= 0 ){
+                if (user.currentHp <= 0 ){
 
-                var deathHp = alert("You lost all of your HP and died.")
+                    var deathHp = alert("You lost all of your HP and died.")
 
-                main.html("<h1> GAME OVER </h1>")
-                main.attr("style", "text-align: center;")
-                next2.attr("style", "display: none")
+                    main.html("<h1> GAME OVER </h1>")
+                    main.attr("style", "text-align: center;")
+                    next2.attr("style", "display: none")
 
-            }
+                }
+
             statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
 
 
