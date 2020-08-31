@@ -43,7 +43,7 @@ class RpgChar{
 
             console.log(`${this.name} won 10 gold and now has ${this.gold} gold.`)
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
 
         } else if ((Math.random()*10) + this.acuity < (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
@@ -54,21 +54,21 @@ class RpgChar{
 
             console.log(`${this.name} has lost 10 gold and now has ${this.gold} gold.`)
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
 
         } else if (this.gold < 10){
 
             console.log(`${this.name} doesn't have enough money to gamble with.`)
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
 
         } else if (target.gold < 10) {
 
             console.log(`${target.name} doesn't have enough money to gamble with.`)
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
         }
     }
@@ -85,21 +85,21 @@ class RpgChar{
             console.log(`${this.name} successfully pickpocketed 5 gold from ${target.name}!`)
             console.log(`${this.name} now has ${this.gold} gold.`)
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
 
         }else if (target.gold < 5){
 
             console.log("The target doesn't have any gold to steal!")
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
 
         } else {
             
             console.log(`${this.name} fails to pickpocket ${target.name}`)
             console.log("")
-            console.log("----------------")
+            console.log("----------------------------")
             console.log ("")
         }   
     }
@@ -126,7 +126,7 @@ class RpgChar{
 
                 user.strength = user.strength + 1 
 
-                statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+                statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
                 var gainStrengthDiv = ($("<div>"))
                 gainStrengthDiv.text("You Got a big haul and gained a strengh point!")
                 gainStrengthDiv.appendTo(fishAction)
@@ -139,7 +139,7 @@ class RpgChar{
             }
 
             var spaceDiv = $("<div>")
-            spaceDiv.text("---------------")
+            spaceDiv.text("----------------------------")
             spaceDiv.appendTo(fishAction)
 
             fishAction.prependTo(actionBox1)
@@ -163,7 +163,7 @@ class RpgChar{
 
             this.acuity = this.acuity + 1
 
-            statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+            statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
 
             var gainAcuityDiv = $("<div>")
             gainAcuityDiv.text("You avoided all thorny branches and gained an acuity point!")
@@ -177,7 +177,7 @@ class RpgChar{
         berryBank.text(basketsOfBerry)
 
         var spaceDiv = $("<div>")
-        spaceDiv.text("---------------")
+        spaceDiv.text("----------------------------")
         spaceDiv.appendTo(gatherAction)
 
         gatherAction.prependTo(actionBox1)
@@ -189,7 +189,7 @@ class RpgChar{
         var investigateAction = $("<div>")
 
         var investDiv = $("<div>")
-        investDiv.text("You take a walk around your tribes encampment searching for any threats")
+        investDiv.text("You take a walk around your tribes encampment searching for any threats.")
         investDiv.appendTo(investigateAction)
 
         var check = Math.random()
@@ -201,7 +201,7 @@ class RpgChar{
             safe.appendTo(investigateAction)
 
             var spaceDiv = $("<div>")
-            spaceDiv.text("---------------")
+            spaceDiv.text("----------------------------")
             spaceDiv.appendTo(investigateAction)
 
         } else if(check >.33 && check < .66){
@@ -210,10 +210,10 @@ class RpgChar{
             possibleDanger.text("You see a bear in the distance, but it's several miles away from camp.")
             possibleDanger.appendTo(investigateAction)
 
-            console.log("You see a bear, but it's a good ways in the distance")
+            console.log("You see a bear, but it's a good ways in the distance.")
 
             var spaceDiv = $("<div>")
-            spaceDiv.text("---------------")
+            spaceDiv.text("----------------------------")
             spaceDiv.appendTo(investigateAction)
 
 
@@ -224,46 +224,129 @@ class RpgChar{
             bearChallenge.text("A bear tears out of the brush and chalenges you!")
             bearChallenge.appendTo(investigateAction)
 
-            var willFight = confirm("A bear tears out of the brush and chalenges you! Will you fight the bear? (Hit 'Ok' to fight, 'cancel' to run!)")
+            var trickBear = confirm("A bear tears out of the brush and chalenges you! can you lead it away from the camp? (Hit 'Ok' to try and trick the bear, 'cancel' to run! (WARNING: Trciking the bear is dangerous))")
 
-            var fightBear = $("<div>")
+            var yesTrickBear = $("<div>")
 
-            if(willFight === true){
+            if(trickBear === true){
 
-                var yesFightBear = $("<div>")
-                yesFightBear.text("You circle the Bear and prepare to fight it!")
-                yesFightBear.appendTo(investigateAction)
+                var trickRoll = Math.floor(Math.random()* this.wisdom)
 
-                // while(bear.alive === true || user.alive === true ){
+                if(trickRoll >= 4){
+                    
+                    var yesFightBear = $("<div>")
+                    yesTrickBear.text("You lead the bear a good ways from camp and escape unharmed!")
+                    yesTrickBear.appendTo(investigateAction)
 
-                //     bear.currentHp = bear.currentHp - user.strength
+                    var gainWisdomDiv = $("<div>")
+                    gainWisdomDiv.text("You gained a wisdom point!")
+                    gainWisdomDiv.appendTo(investigateAction)
+                    
+                    user.wisdom = user.wisdom +1
+    
+                    statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+                    
+                    // while(bear.alive === true || user.alive === true ){
+    
+                    //     bear.currentHp = bear.currentHp - user.strength
+    
+                    //     user.currentHp = user.currentHp - bear.strength
+    
+                    //     if(bear.currentHp <= 0){
+                    //         bear.alive = false
+                    //         console.log("The bear died")
+                    //     }
+                    //     if(user.hp <= 0){
+                    //         user.alive = false 
+                    //         console.log(`${user.name} died. GAME OVER`)
+                    //     }
+                    // }
+                }else if (trickRoll < 4 && trickRoll > 1){
 
-                //     user.currentHp = user.currentHp - bear.strength
+                    var yesFightBear = $("<div>")
+                    yesTrickBear.text("You lead the bear a good ways from camp but get injured during the process!")
+                    yesTrickBear.appendTo(investigateAction)
 
-                //     if(bear.currentHp <= 0){
-                //         bear.alive = false
-                //         console.log("The bear died")
-                //     }
-                //     if(user.hp <= 0){
-                //         user.alive = false 
-                //         console.log(`${user.name} died. GAME OVER`)
-                //     }
-                // }
+                    var lostHealth = $("<div>")
+                    lostHealth.text("You lost 5 health")
+                    lostHealth.appendTo(investigateAction)
+                    
+                    user.currentHp = user.currentHp - 5
+
+                    if(this.currentHp <= 0){
+
+                        var deathHp = alert("You lost all of your HP and died.")
+
+                        main.html= "<h1> GAME OVER </h1>"
+                        main.attr("style", "text-align: center;")
+                        next2.attr("style", "display: none")
+
+                    }
+
+    
+                    statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+
+                }else{
+
+                    var death =  alert("While leading the bear awy you trip over a log and are mauled to death.")
+                    main.html("<h1> GAME OVER </h1>")
+                    main.attr("style", "text-align: center;")
+                    next2.attr("style", "display: none")
+
+                }
+
 
 
                 var spaceDiv = $("<div>")
-                spaceDiv.text("---------------")
+                spaceDiv.text("----------------------------")
                 spaceDiv.appendTo(investigateAction)
 
 
-            }else if(willFight === false){
+            }else if(trickBear === false){
+
+                var runRoll = Math.floor(Math.random() * user.speed)
+                console.log(failRoll)
+
+                if(runRoll >= 4){
 
                 var noFightBear = $("<div>")
-                noFightBear.text("You lead the bear a good ways from camp and escape unharmed!")
+                noFightBear.text("You run as hard as you can and escape the bear. By some miracle he doesn't follow you.")
                 noFightBear.appendTo(investigateAction)
 
+                var gainSpeedDiv = $("<div>")
+                gainSpeedDiv.text("You gained a speed point!")
+                gainSpeedDiv.appendTo(investigateAction)
+                
+                user.speed = user.speed +1
+
+                statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+
+
+                } else if (runRoll > 1 && failRoll < 4){
+
+                    var noFightBear = $("<div>")
+                    noFightBear.text("You throw some of your food at the bear and run!")
+                    noFightBear.appendTo(investigateAction)
+
+                    basketsOfBerry = basketsOfBerry - 1
+
+                    fishCaught = fishCaught - 3
+
+                }else{
+
+                    var noFightBear = $("<div>")
+                    noFightBear.text("The bear won't stop chasing you so you have to drop all of the food you have!")
+                    noFightBear.appendTo(investigateAction)
+
+                    basketsOfBerry = 0;
+
+                    fishCaught = 0;
+
+                }
                 var spaceDiv = $("<div>")
-                spaceDiv.text("---------------")
+                spaceDiv.text("----------------------------")
                 spaceDiv.appendTo(investigateAction)
             }
 
@@ -271,35 +354,6 @@ class RpgChar{
 
         investigateAction.prependTo(actionBox1)
     }
-
-
-    //Training methods
-
-    trainHp(){
-
-        console.log(`${this.name} trains the HP skill. `)
-
-        if(this.maxHp <= 100){
-
-            this.maxHp = this.maxHp + 1
-    
-            console.log(`${this.name}'s HP is now ${this.maxHp}.`)
-            console.log("")
-            console.log("----------------")
-            console.log ("")
-
-        } else {
-
-            console.log(`${this.name} has 100 HP. They do not need to train anymore.`)
-            console.log("")
-            console.log("----------------")
-            console.log ("")
-
-        }
-    }
-
-
-    //Combat methods 
 
 
     // Healing Methods
@@ -336,7 +390,7 @@ class RpgChar{
 
         console.log(`${this.name} now has ${this.currentHp} HP`)
         console.log("")
-        console.log("----------------")
+        console.log("----------------------------")
         console.log ("")
 
 
@@ -387,11 +441,11 @@ var bear = new Animal("Snarling Bear", 12, 12, true, 2, 3, 6)
 //test zone
 
 console.log("")
-console.log("----------------")
+console.log("----------------------------")
 console.log ("")
 console.log("What is(are) your action(s)?")
 console.log("")
-console.log("----------------")
+console.log("----------------------------")
 console.log ("")
 
 // Run tests here
