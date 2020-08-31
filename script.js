@@ -104,6 +104,43 @@ class RpgChar{
     //     }   
     // }
 
+        // Healing Methods
+
+    // eat(food){
+    //     // Only food objects for now: apple(1) soon to come: bread(5), meat(10)
+    //     console.log(`${this.name} has ${this.currentHp} HP`)
+
+    //     if(food === "apple"){
+
+    //         if(this.currentHp < this.maxHp){
+
+    //             this.currentHp += 1
+
+    //             console.log(`${this.name} eats an apple.`)
+    //             console.log(`It heals 1 HP`)
+
+    //         }else if(this.currentHp === this.maxHp ){
+
+    //             console.log(`${this.name} isn't hungry`)
+
+    //         }else{
+
+    //             console.log(`${this.name} trys to eat ${food} but throws it up.`)
+    //         }
+    //     }
+
+    //         //Insurance so that health doesnt exceed max HP level
+    //         if(this.currentHp > this.maxHp){
+            
+    //             this.currentHp = this.maxHp
+
+    //         }
+
+    //     console.log(`${this.name} now has ${this.currentHp} HP`)
+    //     console.log("")
+    //     console.log("----------------------------")
+    //     console.log ("")
+    // }
 
     cast(){
 
@@ -115,12 +152,11 @@ class RpgChar{
 
         castDiv.appendTo(fishAction)
         
+        var fishInNet = (Math.floor(Math.random()*7))
 
-            var fishInNet = (Math.floor(Math.random()*7))
+        console.log(fishInNet)
 
-            console.log(fishInNet)
-
-            fishCaught = fishCaught + fishInNet
+        fishCaught = fishCaught + fishInNet
 
             if(fishInNet > 5){
 
@@ -138,13 +174,13 @@ class RpgChar{
                 catchAmount.appendTo(fishAction)
             }
 
-            var spaceDiv = $("<div>")
-            spaceDiv.text("----------------------------")
-            spaceDiv.appendTo(fishAction)
+        var spaceDiv = $("<div>")
+        spaceDiv.text("----------------------------")
+        spaceDiv.appendTo(fishAction)
 
-            fishAction.prependTo(actionBox1)
+        fishAction.prependTo(actionBox1)
 
-            fishBank.text(fishCaught)
+        fishBank.text(fishCaught)
     }
 
 
@@ -197,7 +233,7 @@ class RpgChar{
 
         var check = Math.random()
 
-        if(check < .33){
+        if(check < .25){
 
             var safe = $("<div>")
             safe.text("Everything is safe and secure.")
@@ -207,7 +243,7 @@ class RpgChar{
             spaceDiv.text("----------------------------")
             spaceDiv.appendTo(investigateAction)
 
-        } else if(check >.33 && check < .66){
+        } else if(check >.25&& check < .85){
 
             var possibleDanger= $("<div>")
             possibleDanger.text("You see a bear in the distance, but it's several miles away from camp.")
@@ -219,8 +255,7 @@ class RpgChar{
             spaceDiv.text("----------------------------")
             spaceDiv.appendTo(investigateAction)
 
-
-        }else if(check > .66){
+        }else if(check > .85){
 
             console.log("A bear tears out of the brush and chalenges you!")
             var bearChallenge = $("<div>")
@@ -265,7 +300,7 @@ class RpgChar{
 
                         var deathHp = alert("You lost all of your HP and died.")
 
-                        main.html= "<h1> GAME OVER </h1>"
+                        main.html("<h1> GAME OVER </h1>")
                         main.attr("style", "text-align: center;")
                         next2.attr("style", "display: none")
 
@@ -364,8 +399,6 @@ class RpgChar{
 
             berryBank.text(basketsOfBerry)
 
-            
-
             var mealRoll = Math.random()
 
             if(mealRoll > .6){
@@ -398,44 +431,68 @@ class RpgChar{
     }
 
 
-    // Healing Methods
 
-    eat(food){
-        // Only food objects for now: apple(1) soon to come: bread(5), meat(10)
-        console.log(`${this.name} has ${this.currentHp} HP`)
+    experiment(){
 
-        if(food === "apple"){
+        var experimentAction = $("<div>")
 
-            if(this.currentHp < this.maxHp){
+        var tryExpDiv = $("<div>")
+        tryExpDiv.text("You try to experiment with Magic")
+        tryExpDiv.appendTo(experimentAction)
 
-                this.currentHp += 1
+        var experimentRoll = Math.random() * user.magic
 
-                console.log(`${this.name} eats an apple.`)
-                console.log(`It heals 1 HP`)
+        if(experimentRoll >= 4){
 
-            }else if(this.currentHp === this.maxHp ){
+            var expSuc = $("<div>")
+            expSuc.text("You gain more knowledge of the mysterious Arcane particles!")
+            expSuc.appendTo(experimentAction)
 
-                console.log(`${this.name} isn't hungry`)
+            user.magic = user.magic + 1
+            statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
 
-            }else{
 
-                console.log(`${this.name} trys to eat ${food} but throws it up.`)
+            var gainMagicDiv = $("<div>")
+            gainMagicDiv.text("You gained a magic point!")
+            gainMagicDiv.appendTo(experimentAction)
+
+
+        }else if (experimentRoll > 2 && experimentRoll < 4){
+
+            var expFail = $("<div>")
+            expFail.text("You failed to gain more knowledge of the Arcane.")
+            expFail.appendTo(experimentAction)
+
+        }else{
+
+            var expInjury = $("<div>")
+            expInjury.text("You hurt yourself while experimenting with magic.")
+            expInjury.appendTo(experimentAction)
+
+            user.currentHp = user.currentHp - 5;
+
+            if (user.currentHp <= 0 ){
+
+                var deathHp = alert("You lost all of your HP and died.")
+
+                main.html("<h1> GAME OVER </h1>")
+                main.attr("style", "text-align: center;")
+                next2.attr("style", "display: none")
+
             }
+            statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+
+            var expHealth = $("<div>")
+            expHealth.text("You lost 5 HP")
+            expHealth.appendTo(experimentAction)
         }
 
-            //Insurance so that health doesnt exceed max HP level
-            if(this.currentHp > this.maxHp){
-            
-                this.currentHp = this.maxHp
+        var spaceDiv = $("<div>")
+        spaceDiv.text("----------------------------")
+        spaceDiv.appendTo(experimentAction)
 
-            }
-
-        console.log(`${this.name} now has ${this.currentHp} HP`)
-        console.log("")
-        console.log("----------------------------")
-        console.log ("")
-
-
+        experimentAction.prependTo(actionBox1)
     }
 };
 
@@ -575,6 +632,14 @@ meal.on("click", function(){
 
 })
 
+var exper = $("#exper")
+
+exper.on("click", function(){
+
+    user.experiment() 
+
+})
+
 
 // Depart to next chapter
 var next3 = $("#next3")
@@ -592,7 +657,7 @@ next2.on("click", function(){
        next3.attr("style", "display: initial;")
 
     } else {
-        alert("Your people are not prepared for the journey!")
+        alert("Your people are not prepared for the journey! You need a storehouse of at least 30 fish and 15 baskets of wildberries to depart.")
     }
 
 
