@@ -113,7 +113,9 @@ fieldset{
     height: 365px;
 
     background-color: white;
-    border: solid black
+    border: solid black;
+
+    overflow: auto;
 
 
 }
