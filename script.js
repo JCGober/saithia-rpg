@@ -5,6 +5,9 @@ var fishCaught = 0;
 var berryBank = $("#basketsGathered")
 var basketsOfBerry = 0;
 
+var bearsBank = $("#bearsTricked")
+var bearsAmount = 0;
+
 
 // Constructor for heroes
 class RpgChar{
@@ -284,6 +287,9 @@ class RpgChar{
     
                     statBox.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
 
+                    bearsAmount = bearsAmount + 1
+                    bearsBank.text(bearsAmount)
+                    
                 }else if (trickRoll < 4 && trickRoll > 1){
 
                     var yesFightBear = $("<div>")
@@ -293,6 +299,9 @@ class RpgChar{
                     var lostHealth = $("<div>")
                     lostHealth.text("You lost 5 health")
                     lostHealth.appendTo(investigateAction)
+
+                    bearsAmount = bearsAmount + 1
+                    bearsBank.text(bearsAmount) 
                     
                     user.currentHp = user.currentHp - 5
 
