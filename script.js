@@ -697,12 +697,26 @@ next2.on("click", function(){
 
 // CHAPTER 2 
 
+var game2 = $("#game2")
+var actionBox2 = $("#actionBox2")
+var statsBox2 = $("#statsBox2")
+var statsBox3 = $("#statsBox3")
+
+
 next3.on("click", function(){
 
-    main.html("<h1> COMING SOON! </h1>")
-    main.attr("style", "text-align: center;")
-
+    // Disapear
     next3.attr("style", "display: none;")
+    chap2.attr("style", "display: none;")
+
+    // Add to screen 
+
+    game2.attr("style", "display: block;")
+    statsBox2.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+    statsBox3.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+
+
+
 })
 
 

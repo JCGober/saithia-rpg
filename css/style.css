@@ -127,5 +127,42 @@ fieldset{
 
 /* Game Area 2 */
 
+#game2{
+    display: none;
+}
+
+#statsBox2{
+    float: left;
+    margin: 16px;
+    padding: 8px;
+    background-color: white;
+    border: double black
+}
+#statsBox3{
+    float: left;
+    margin: 16px;
+    padding: 8px;
+    background-color: white;
+    border: double black
+}
+
+#actionBox2{
+
+    padding: 2px;
+
+    float: left;
+
+    width: 340px;
+    height: 365px;
+
+    background-color: white;
+    border: solid black;
+
+    overflow: auto;
+
+}
+
+
+
 
 
