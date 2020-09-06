@@ -525,6 +525,27 @@ var kel = new RpgChar("Kellian", "son of Corinthe", "mage", 100, "None", 15, 15,
 var ell = new RpgChar("Ellora", "Wife of Corinthe", "mage", 100, "none", 19, 20, true, 10, 8, 10, 5, 8, 5)
 
 
+// Creature Constructor 
+
+class Creature{
+    constructor(name,currentHp, maxHp, speed, defence, magic, strength){
+        this.name = name
+        this.currentHp = currentHp
+        this.maxHp = maxHp
+        this.speed = speed
+        this.defence = defence
+        this.magic = magic
+        this.strength = strength
+    }
+}
+
+// Creature Creation
+
+var yeti = new Creature("Forrest Yeti", 75, 75, 5, 5, 0, 11)
+
+console.log(yeti)
+
+
 //test zone
 
 console.log("")
@@ -617,6 +638,7 @@ next1.on("click", function(){
     game1.attr("style", "display: initial;")
 
     next2.attr("style", "display: initial;")
+    main.attr("style", "background-color: papayawhip")
 
 })
 
@@ -687,6 +709,7 @@ next2.on("click", function(){
        chap2.attr("style", "display: initial;")
 
        main.attr("style", "height: auto;")
+       main.attr("style", "background-color: oldlace")
 
        
 
@@ -701,6 +724,7 @@ var game2 = $("#game2")
 var actionBox2 = $("#actionBox2")
 var statsBox2 = $("#statsBox2")
 var statsBox3 = $("#statsBox3")
+var fightBar = $("#fightBar")
 
 
 next3.on("click", function(){
@@ -708,13 +732,16 @@ next3.on("click", function(){
     // Disapear
     next3.attr("style", "display: none;")
     chap2.attr("style", "display: none;")
+    main.attr("style", "background-color: papayawhip")
 
     // Add to screen 
 
-    game2.attr("style", "display: block;")
-    statsBox2.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
-    statsBox3.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+    game2.attr("style", "display: initial;")
+    statsBox2.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
+    statsBox3.html(`<h3><strong>${yeti.name}</strong></h3><h4>HP: ${yeti.currentHp}/${yeti.maxHp}</h4>`)
 
+    fightBar.attr("style", "display: initial;")
+    
 
 
 })

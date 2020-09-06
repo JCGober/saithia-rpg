@@ -30,6 +30,7 @@ body{
 
 #nextButtons{
     text-align: center;
+
 }
 
 #next0{
@@ -42,7 +43,12 @@ body{
 }
 #next2{
     display: none;
+    margin-top: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+
 }
+
 #next3{
     display: none;
 
@@ -50,6 +56,11 @@ body{
 }
 #next4{
     display: none;
+}
+#actionButs{
+    text-align: center;
+    margin: auto;
+    width: 25px;
 }
 
 button{
@@ -80,6 +91,8 @@ fieldset{
 
 #game1{
     display: none;
+    /* margin: auto;
+    width: 80%; */
 }
 
 #statsBox{
@@ -129,6 +142,8 @@ fieldset{
 
 #game2{
     display: none;
+    margin: auto;
+    width: 100%;
 }
 
 #statsBox2{
@@ -159,6 +174,15 @@ fieldset{
     border: solid black;
 
     overflow: auto;
+
+}
+
+#fightBar{
+    display: none;
+    background-color: white;
+    margin: auto;
+    width: min-content;
+    float: unset;
 
 }
 
