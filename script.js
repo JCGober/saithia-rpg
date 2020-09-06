@@ -28,122 +28,7 @@ class RpgChar{
         this.strength = strength;
     }
     
-    // METHODS FOR RPGCHAR
-
-    // Social methods
-
-    //Side skill methods
-
-    // gamble(target){
-
-    //     console.log(`${this.name} asks to play a game of dice with ${target.name}`)
-
-    //     if ((Math.random()*10) + this.acuity > (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
-
-    //         target.gold = target.gold - 10
-            
-    //         this.gold = this.gold + 10
-
-    //         console.log(`${this.name} won 10 gold and now has ${this.gold} gold.`)
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-
-    //     } else if ((Math.random()*10) + this.acuity < (Math.random()*10) + target.acuity && target.gold >=10 && this.gold >=10){
-
-    //         this.gold = this.gold - 10
-            
-    //         target.gold = target.gold + 10
-
-    //         console.log(`${this.name} has lost 10 gold and now has ${this.gold} gold.`)
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-
-    //     } else if (this.gold < 10){
-
-    //         console.log(`${this.name} doesn't have enough money to gamble with.`)
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-
-    //     } else if (target.gold < 10) {
-
-    //         console.log(`${target.name} doesn't have enough money to gamble with.`)
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-    //     }
-    // }
-
-    // pickpocket(target){
-
-    //     console.log(`${this.name} attempts to pickpocket ${target.name}`)
-
-    //     if(this.acuity > target.acuity && target.gold >= 5){
-
-    //         target.gold = target.gold - 5
-    //         this.gold = this.gold + 5
-
-    //         console.log(`${this.name} successfully pickpocketed 5 gold from ${target.name}!`)
-    //         console.log(`${this.name} now has ${this.gold} gold.`)
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-
-    //     }else if (target.gold < 5){
-
-    //         console.log("The target doesn't have any gold to steal!")
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-
-    //     } else {
-            
-    //         console.log(`${this.name} fails to pickpocket ${target.name}`)
-    //         console.log("")
-    //         console.log("----------------------------")
-    //         console.log ("")
-    //     }   
-    // }
-
-        // Healing Methods
-
-    // eat(food){
-    //     // Only food objects for now: apple(1) soon to come: bread(5), meat(10)
-    //     console.log(`${this.name} has ${this.currentHp} HP`)
-
-    //     if(food === "apple"){
-
-    //         if(this.currentHp < this.maxHp){
-
-    //             this.currentHp += 1
-
-    //             console.log(`${this.name} eats an apple.`)
-    //             console.log(`It heals 1 HP`)
-
-    //         }else if(this.currentHp === this.maxHp ){
-
-    //             console.log(`${this.name} isn't hungry`)
-
-    //         }else{
-
-    //             console.log(`${this.name} trys to eat ${food} but throws it up.`)
-    //         }
-    //     }
-
-    //         //Insurance so that health doesnt exceed max HP level
-    //         if(this.currentHp > this.maxHp){
-            
-    //             this.currentHp = this.maxHp
-
-    //         }
-
-    //     console.log(`${this.name} now has ${this.currentHp} HP`)
-    //     console.log("")
-    //     console.log("----------------------------")
-    //     console.log ("")
-    // }
+    // Methods for RPGCHAR
 
     cast(){
 
@@ -725,6 +610,7 @@ var actionBox2 = $("#actionBox2")
 var statsBox2 = $("#statsBox2")
 var statsBox3 = $("#statsBox3")
 var fightBar = $("#fightBar")
+var enemyBox = $("#enemyBox")
 
 
 next3.on("click", function(){
@@ -739,11 +625,9 @@ next3.on("click", function(){
     game2.attr("style", "display: initial;")
     statsBox2.html(`<h3><strong>${user.name}</strong></h3><p>Gold:${user.gold}<h3>Skills</h3> HP: ${user.currentHp}/${user.maxHp} <br> Acuity: ${user.acuity}<br> Speed: ${user.speed} <br> Wisdom: ${user.wisdom} <br> Defence: ${user.defence} <br> Magic: ${user.magic} <br> Strength: ${user.strength}</p>`)
     statsBox3.html(`<h3><strong>${yeti.name}</strong></h3><h4>HP: ${yeti.currentHp}/${yeti.maxHp}</h4>`)
-
+    enemyBox.attr("style", "display: initial;")
     fightBar.attr("style", "display: initial;")
     
-
-
 })
 
 

@@ -27,9 +27,9 @@
             <li class="nav-item">
               <a class="nav-link" href="pages/about.html">About</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-            </li> -->
+            <li class="nav-item">
+              <a class="nav-link enabled" href="#" tabindex="-1" aria-enabled="true"></a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -164,7 +164,7 @@
 
 
 
-        <section id="game1">
+        <section id="game1" class="clearfix centerElement">
 
           <div id="statsBox"></div>
 
@@ -195,25 +195,18 @@
 
         </section>
 
+        <fieldset id="enemyBox">
+          <legend>Enemies</legend>
+          <div id="statsBox3" ></div>
+        </fieldset>
 
-        <section id= "game2" class="container">
+
+        <section id= "game2" class="clearfix">
 
           <div id="statsBox2"></div>
 
-          <div id="actionBox2" class="mx-auto"></div>
+          <div id="actionBox2"></div>
 
-          <div id="statsBox3" ></div>
-
-        </section>
-
-        <section id = "fightBar">
-
-          <button>Attack</button>
-          <button>Magic Attack</button>
-          <button>Eat Fish</button>
-          <button>Call</button>
-  
-  
         </section>
 
 
@@ -221,7 +214,7 @@
             <button id="start">Begin Your Journey</button>
         </div>
 
-        <div id="nextButtons">
+        <div id="nextButtons" class="centerElement">
 
           <button id="next0">Next</button>
           <button id="next1">Next</button>
@@ -231,7 +224,26 @@
           
         </div>
 
+        <section id = "fightBar">
+    
+          <button class="fightbtn" id = "attackBtn">Attack</button>
+          <button class="fightbtn" id = "magicBtn">Magic Attack</button>
+          <button class="fightbtn" id = "eatBtn">Eat Fish</button>
+          <button class="fightbtn" id = "checkBtn">Check</button>
+  
+        </section>
+
+      </div>
+
       </main>
+
+      <br>
+
+
+
+      
+
+      
 
       <br>
 

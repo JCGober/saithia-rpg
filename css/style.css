@@ -9,6 +9,12 @@
     margin-bottom: 35px;
 }
 
+#gameBody{
+
+    margin: 0 auto;
+    width: 80%
+}
+
 .main2{
     width: 80%;
     padding: 20px;
@@ -25,6 +31,23 @@ body{
     background-color: papayawhip;
     font-family: 'Philosopher', sans-serif;
 }
+
+.centerElement{
+
+    margin: auto;
+    padding: 5px;
+    width: 80%;
+
+}
+
+.clearfix{
+    content: "";
+    display: table;
+    clear: both;
+
+
+}
+
 
 /* next buttons  */
 
@@ -91,8 +114,8 @@ fieldset{
 
 #game1{
     display: none;
-    /* margin: auto;
-    width: 80%; */
+    margin: 0 auto;
+    width: 100%;
 }
 
 #statsBox{
@@ -126,6 +149,7 @@ fieldset{
 
 #actionBox1{
     padding: 2px;
+    margin-top: 15px;
 
     float: left;
 
@@ -143,7 +167,7 @@ fieldset{
 #game2{
     display: none;
     margin: auto;
-    width: 100%;
+    width: 600px;
 }
 
 #statsBox2{
@@ -158,7 +182,7 @@ fieldset{
     margin: 16px;
     padding: 8px;
     background-color: white;
-    border: double black
+    border: solid black
 }
 
 #actionBox2{
@@ -167,7 +191,7 @@ fieldset{
 
     float: left;
 
-    width: 340px;
+    width: 450px;
     height: 365px;
 
     background-color: white;
@@ -179,11 +203,22 @@ fieldset{
 
 #fightBar{
     display: none;
-    background-color: white;
-    margin: auto;
-    width: min-content;
-    float: unset;
+    float: left;
+    margin-left: 25%; 
 
+
+}
+
+.fightbtn{
+
+    margin: 10px;
+}
+
+#enemyBox{
+    display: none;
+    border:double;
+    margin: 10px;
+    background-color: whitesmoke;
 }
 
 
