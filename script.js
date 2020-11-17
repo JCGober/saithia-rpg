@@ -572,7 +572,6 @@ var next3 = $("#next3")
 var chap2 = $("#chap2")
 
 
-
 next2.on("click", function(){
 
     if(fishCaught > 30 && basketsOfBerry > 15){
@@ -627,6 +626,7 @@ next3.on("click", function(){
     statsBox3.html(`<h3><strong>${yeti.name}</strong></h3><h4>HP: ${yeti.currentHp}/${yeti.maxHp}</h4>`)
     enemyBox.attr("style", "display: initial;")
     fightBar.attr("style", "display: initial;")
+    alert("This section of the game is still currently under development. Thank you for participating, please come back and try it out at a later date! -Jared C. Gober, Developer")
     
 })
 
